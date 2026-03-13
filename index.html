@@ -65,7 +65,7 @@
         .envelope.open::before { transform: rotateX(180deg); }
 
         .arch-popup {
-            position: absolute; bottom: 10px; left: 10px; width: 260px; height: 160px;
+            position: absolute; bottom: 10px; left: 20px; width: 260px; height: 160px;
             background: white; border-radius: 130px 130px 2px 2px;
             display: flex; flex-direction: column; justify-content: center; align-items: center;
             transition: transform 1s cubic-bezier(0.175, 0.885, 0.32, 1.275); z-index: 2; border: 1px solid #eee;
@@ -294,8 +294,8 @@
         <div class="envelope-wrapper" onclick="handleOpen()">
             <div class="envelope" id="envelope">
                 <div class="arch-popup">
-                    <h2 style="margin-top: 5rem; font-size: 1.3rem;">Tan & Ngoc</h2>
-                    <p style="font-size: 0.6rem; letter-spacing: 2px;">SAVE THE DATE: 06 . 26 . 2026</p>
+                    <h2 style="margin-top: 5rem; margin-left: 1rem; font-size: 1.3rem;">Tan & Ngoc</h2>
+                    <p style="font-size: 0.6rem; letter-spacing: 2px;">SAVE THE DATE: 06 . 20 . 2026</p>
                 </div>
             </div>
         </div>
@@ -307,7 +307,7 @@
             <div data-aos="zoom-in" data-aos-duration="2000">
                 <p class="greeting">STAMPING OUR NAMES</p>
                 <h1>Tan Hoang & Ngoc Ngo</h1>
-                <p style="letter-spacing: 5px; font-weight: 300; margin-top: 20px;">JUNE 26, 2026</p>
+                <p style="letter-spacing: 5px; font-weight: 300; margin-top: 20px; margin: 0;">JUNE 20, 2026</p>
             </div>
         </section>
 
@@ -321,18 +321,18 @@
                 <div class="cal-grid">
                     <span>M</span><span>T</span><span>W</span><span>T</span><span>F</span><span>S</span><span>S</span>
                     <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span>
-                    <span>...</span><span>22</span><span>23</span><span>24</span><span>25</span><span class="active-day">26</span><span>27</span>
-                    <span>28</span><span>29</span><span>30</span>
+                    <span>...</span><span>16</span><span>17</span><span>18</span><span>19</span><span class="active-day">20</span><span>21</span>
+                    <span>22</span><span>23</span><span>24</span>
                 </div>
                 
                 <p class="cal-head" style="margin-top: 15px;">TAN HOANG & NGOC NGO</p>
             </div>
             <div class="memories-container">
                 <div class="polaroid" data-aos="fade-up">
-                    <img src="https://i.imgur.com/4uJHKvf.png">
+                    <img src="https://i.imgur.com/cGljzeE.png">
                 </div>
                 <div class="polaroid" data-aos="fade-up">
-                    <img src="https://images.unsplash.com/photo-1522673607200-164883eecd4c?w=600">
+                    <img src="https://i.imgur.com/rafGcnE.png">
                 </div>
             </div>
         </section>
@@ -342,9 +342,10 @@
 
             <div class="auto-slider" data-aos="zoom-in">
                 <div class="slides" id="slide-track">
-                    <img src="https://images.unsplash.com/photo-1519741497674-611481863552?w=800" class="slide-img">
-                    <img src="https://images.unsplash.com/photo-1529636798458-92182e662485?w=800" class="slide-img">
-                    <img src="https://images.unsplash.com/photo-1511285560929-80b456fed0bc?w=800" class="slide-img">
+                    <img src="https://i.imgur.com/6OIlgWr.jpeg" class="slide-img">
+                    <img src="https://i.imgur.com/6E4ZEbU.jpeg" class="slide-img">
+                    <img src="https://i.imgur.com/FdEh5AU.jpeg" class="slide-img">
+                    <img src="https://i.imgur.com/e0yUdxZ.jpeg" class="slide-img">
                 </div>
             </div>
         </section>
@@ -409,7 +410,7 @@
             let index = 0;
             const track = document.getElementById('slide-track');
             setInterval(() => {
-                index = (index + 1) % 3;
+                index = (index + 1) % 4;
                 // Fixed the backticks here:
                 track.style.transform = `translateX(-${index * 100}%)`;
             }, 3000);
