@@ -208,6 +208,38 @@
     gap: 40px;
 }
 
+/* Luxury Direction Button */
+.maps-btn {
+    display: inline-block;
+    margin-top: 25px;
+    padding: 12px 25px;
+    border: 1px solid var(--gold-foil);
+    color: var(--gold-foil);
+    text-decoration: none;
+    font-size: 0.7rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    transition: all 0.3s ease;
+    border-radius: 2px;
+    font-family: 'Quicksand', sans-serif;
+    font-weight: 500;
+}
+
+.maps-btn:hover {
+    background: var(--gold-foil);
+    color: white;
+    box-shadow: 0 5px 15px rgba(198, 160, 89, 0.3);
+}
+
+/* NEW GUEST NAME STYLE */
+#guest-name {
+            font-family: 'Great Vibes', cursive;
+            font-size: 2.2rem;
+            color: var(--gold-foil);
+            margin: 10px 0;
+            display: block;
+        }
+
 /* Individual Card Styling */
 .event-card {
     background: #ffffff;
@@ -307,6 +339,10 @@
             <div data-aos="zoom-in" data-aos-duration="2000">
                 <p class="greeting">STAMPING OUR NAMES</p>
                 <h1>Tan Hoang & Ngoc Ngo</h1>
+                <p style="letter-spacing: 2px; font-weight: 300; opacity: 0.8;">Cordially Invite</p>
+                
+                <span id="guest-name"></span>
+                <p>To join us on</p>
                 <p style="letter-spacing: 5px; font-weight: 300; margin-top: 20px; margin: 0;">JUNE 20, 2026</p>
             </div>
         </section>
@@ -342,10 +378,11 @@
 
             <div class="auto-slider" data-aos="zoom-in">
                 <div class="slides" id="slide-track">
-                    <img src="https://i.imgur.com/6OIlgWr.jpeg" class="slide-img">
-                    <img src="https://i.imgur.com/6E4ZEbU.jpeg" class="slide-img">
                     <img src="https://i.imgur.com/FdEh5AU.jpeg" class="slide-img">
                     <img src="https://i.imgur.com/e0yUdxZ.jpeg" class="slide-img">
+                    <img src="https://i.imgur.com/4p7Ua0t.jpeg" class="slide-img">
+                    <img src="https://i.imgur.com/MyvzEGO.jpeg" class="slide-img">
+                    <img src="https://i.imgur.com/GADgivu.jpeg" class="slide-img">
                 </div>
             </div>
         </section>
@@ -366,6 +403,8 @@
                         San Jose, California 95121
                     </div>
                     <p style="font-size: 0.7rem; color: var(--gold-foil); letter-spacing: 3px; text-transform: uppercase;">Family Residence</p>
+                    <a href="https://www.google.com/maps/dir/?api=1&destination=3732+Dundale+Dr+San+Jose+CA+95121" 
+               target="_blank" class="maps-btn">Get Directions</a>
                 </div>
         
                 <div class="event-card" data-aos="fade-up" data-aos-delay="300">
@@ -377,6 +416,8 @@
                         Milpitas, CA 95035
                     </div>
                     <p style="font-size: 0.7rem; color: var(--gold-foil); letter-spacing: 3px; text-transform: uppercase;">Reception to Follow</p>
+                    <a href="https://www.google.com/maps/dir/?api=1&destination=HL+Peninsula+Restaurant+Milpitas" 
+               target="_blank" class="maps-btn">Get Directions</a>
                 </div>
         
             </div>
@@ -391,6 +432,21 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
     <script>
+        // FUNCTION TO GET NAME FROM URL
+        function setGuestName() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const name = urlParams.get('guest');
+            const guestElement = document.getElementById('guest-name');
+            
+            if (name) {
+                // Decodes the name (converts + or %20 into spaces)
+                guestElement.innerText = decodeURIComponent(name.replace(/\+/g, ' '));
+            } else {
+                // Fallback if no name is provided
+                guestElement.innerText = "Our Friends & Family";
+            }
+        }
+
         function handleOpen() {
             const env = document.getElementById('envelope');
             const loader = document.getElementById('loader-container');
@@ -402,6 +458,7 @@
                     document.body.classList.add('reveal');
                     AOS.init({ once: true });
                     startSlider();
+                    setGuestName();
                 }, 800);
             }, 1200);
         }
@@ -410,7 +467,7 @@
             let index = 0;
             const track = document.getElementById('slide-track');
             setInterval(() => {
-                index = (index + 1) % 4;
+                index = (index + 1) % 5;
                 // Fixed the backticks here:
                 track.style.transform = `translateX(-${index * 100}%)`;
             }, 3000);
